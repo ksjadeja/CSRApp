@@ -93,16 +93,8 @@ public class DisplayBox extends VBox {
 
         init();
 
-        if(flowPane==null){
-            System.out.println("its flaw");
-//            getChildren().addAll(flowPane,hBox,accordion);
-//            System.out.println(getChildren());
-        }else if(hBox==null){
-            System.out.println("bhox 0");
-//            getChildren().addAll(hBox,accordion);
-        }else {
-            System.out.println("accordion 0");
-        }
+        getChildren().addAll(flowPane,hBox,accordion);
+
     }
 
     private void init(){

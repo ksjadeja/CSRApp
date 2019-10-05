@@ -12,6 +12,7 @@ import com.util.DisplayBox;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -145,21 +146,14 @@ public class Controller {
 
                     JSONObject jsonObject = new JSONObject(res.getString("projects"));
                     int count=jsonObject.getInt("count");
+                    JSONArray jsonArray =jsonObject.getJSONArray("projects");
                     for(int i=0;i<count;i++){
-                        if(((JSONObject) jsonObject.getJSONArray("projects").get(i)).getString("type").equals("NGO")){
-                            ngolist.add(((JSONObject) jsonObject.getJSONArray("projects").get(i)).getString("name"));
+                        if(jsonArray.getJSONObject(i).getString("type").equals("ngos")){
                             displayBox=new DisplayBox(categoryList,res.getString("name"),new Text(res.getString("intro")),"ngos");
                             ngosList.add(displayBox);
-                            System.out.println("ngo ADDED IN DASH");
-
                         }else {
-                            System.out.println("entering getList...");
-                            displayBox=new DisplayBox(categoryList,res.getString("name"),new Text(res.getString("intro")),"projects");
-                            System.out.println(getList("individual_projects",res.getString("name")));
-                            System.out.println("displayBox:"+displayBox);
+                            displayBox=new DisplayBox(categoryList,res.getString("name"),new Text(res.getString("intro")),"individual_projects");
                             projectsList.add(displayBox);
-                            System.out.println("individual ADDED IN DASH");
-
                         }
                     }
                 } catch (JSONException e) {
