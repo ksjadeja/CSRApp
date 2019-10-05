@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSRApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CSRApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSRApp/com/FXML/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSRApp/com/FXML/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSRApp/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSRApp/com/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSRApp/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSRApp/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSRApp/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/FXML/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/FXML/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,6 +118,25 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bean/CompanyBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FXML/Main.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="48" column="102" selection-start-line="48" selection-start-column="102" selection-end-line="48" selection-end-column="102" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -144,6 +166,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/app/Main.java" />
         <option value="$PROJECT_DIR$/src/app/Dao/ConnectionClass.java" />
+        <option value="$PROJECT_DIR$/src/com/Dao/ConnectionClass.java" />
         <option value="$PROJECT_DIR$/src/com/FXML/LoginPage.fxml" />
         <option value="$PROJECT_DIR$/src/com/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/FXML/Main.fxml" />
@@ -154,11 +177,11 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1615" />
-    <option name="height" value="879" />
+    <option name="height" value="880" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -169,6 +192,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,6 +217,13 @@
               <item name="CSRApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSRApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSRApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -200,13 +232,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="Dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CSRApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSRApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="FXML" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CSRApp" type="b2602c69:ProjectViewProjectNode" />
@@ -226,8 +251,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -290,6 +313,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.Main" />
       <module name="CSRApp" />
+      <shortenClasspath name="MANIFEST" />
       <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
@@ -352,7 +376,8 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1570211836796" duration="2050000" />
+      <workItem from="1570211836796" duration="11914000" />
+      <workItem from="1570233203087" duration="8398000" />
     </task>
     <servers />
   </component>
@@ -460,32 +485,29 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/app/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/app/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/app/Dao/ConnectionClass.java" />
-    <entry file="jar://$PATH_TO_FX$/src.zip!/javafx.graphics/javafx/scene/image/ImageView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sample.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/com/FXML/LoginPage.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="182" column="10" lean-forward="true" selection-start-line="182" selection-start-column="10" selection-end-line="182" selection-end-column="10" />
+        <state relative-caret-position="176">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="jar://$PATH_TO_FX$/src.zip!/javafx.graphics/javafx/scene/layout/BackgroundFill.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="106" column="20" lean-forward="true" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PATH_TO_FX$/src.zip!/javafx.graphics/javafx/scene/layout/Background.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="208" column="54" selection-start-line="208" selection-start-column="54" selection-end-line="208" selection-end-column="54" />
+        <state relative-caret-position="176">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <element signature="e#9427#9428#0" expanded="true" />
-            <element signature="e#9460#9461#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Dao/ConnectionClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -558,7 +580,8 @@
         <state relative-caret-position="337">
           <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-end-line="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#6172#6173#0" expanded="true" />
+            <element signature="e#6236#6237#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -573,7 +596,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />

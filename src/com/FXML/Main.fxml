@@ -46,7 +46,7 @@
                                                 <CheckBox fx:id="renewableEnergy" mnemonicParsing="false" text="Renewable Energy" />
                                                 <CheckBox fx:id="ruralDevelopment" mnemonicParsing="false" text="Rural Development" />
                                                 <ChoiceBox fx:id="searchChoiceBox" prefWidth="150.0" />
-                                                <Button fx:id="submitCategories" mnemonicParsing="false" text="Submit" />
+                                                <Button fx:id="submitCategories" onMouseClicked="#submitButtonCategories" mnemonicParsing="false" text="Submit" />
                                              </children>
                                           </FlowPane>
                                           <VBox>
