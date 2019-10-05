@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javafx-swt" level="project" />
     <orderEntry type="library" exported="" name="mysql-connector-java-5.1.48" level="project" />
+    <orderEntry type="library" name="org.json" level="project" />
   </component>
 </module>

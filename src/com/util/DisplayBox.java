@@ -40,7 +40,7 @@ public class DisplayBox extends VBox {
         flowPane = new FlowPane();
         flowPane.getChildren().addAll(tags);
 
-        logo=new ImageView(image+".jpg");
+        logo=new ImageView(image+".jpeg");
         this.name=new Text(title);
         this.intro=intro;
 
