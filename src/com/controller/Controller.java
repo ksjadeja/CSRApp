@@ -23,7 +23,7 @@ public class Controller {
     public CheckBox innovation;
     public CheckBox research;
     public CheckBox renewableEnergy;
-    public CheckBox ruralDevelopment;
+    public CheckBox ruralDevelopment;   
     public Button submitCategories;
 
     @FXML
@@ -82,31 +82,31 @@ public class Controller {
                    }
                    if(education.isSelected())
                    {
-                       str = str.concat("or education=1");
+                       str = str.concat(" or education=1");
                    }
                    if(environment.isSelected())
                    {
-                       str = str.concat("or environment=1");
+                       str = str.concat(" or environment=1");
                    }
                     if(healthcare.isSelected())
                     {
-                        str = str.concat("or healthcare=1");
+                        str = str.concat(" or healthcare=1");
                     }
                     if(innovation.isSelected())
                     {
-                        str = str.concat("or innovation=1");
+                        str = str.concat(" or innovation=1");
                     }
                     if(socialServices.isSelected())
                     {
-                        str = str.concat("or socialServices=1");
+                        str = str.concat(" or socialServices=1");
                     }
                     if(renewableEnergy.isSelected())
                     {
-                        str = str.concat("or renewableEnergy=1");
+                        str = str.concat(" or renewableEnergy=1");
                     }
                     if(ruralDevelopment.isSelected())
                     {
-                        str = str.concat("or ruralDevelopment=1");
+                        str = str.concat(" or ruralDevelopment=1");
                     }
                     System.out.println(str);
 
