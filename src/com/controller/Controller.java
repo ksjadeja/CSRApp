@@ -17,9 +17,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
-    public ChoiceBox<String> searchChoiceBox;
+    @FXML
+    public ChoiceBox searchChoiceBox;
     public CheckBox education;
     public CheckBox environment;
     public CheckBox socialServices;
@@ -41,6 +44,10 @@ public class Controller {
 
     public void initialize(){
         try {
+//            searchChoiceBox =new ChoiceBox();
+            searchChoiceBox.getItems().addAll("NGO","Products");
+//            searchChoiceBox.setValue("Products");
+//            searchChoiceBox.setVisible(true);
             Connection conn = ConnectionClass.getConnection();
             Statement statement = conn.createStatement();
             ResultSet res = statement.executeQuery("SELECT * FROM projects");
@@ -84,7 +91,8 @@ public class Controller {
     }
 
     public void submitButtonCategories(MouseEvent mouseEvent) {
-        String type = searchChoiceBox.getValue();
+        String type ="";
+                type =searchChoiceBox.getValue().toString();
         String tableName="";
         if(type.equals("NGO")) {
             tableName = "ngos";
@@ -98,42 +106,81 @@ public class Controller {
                 String str="select * from "+tableName+" where ";
                    if(research.isSelected())
                    {
-                       str = str.concat("research=1");
+                      if(cnt==0)
+                      {
+                          str = str.concat("research=1");
+                          cnt++;
+                      }
+                       str = str.concat("or research=1");
                    }
                    if(education.isSelected())
                    {
+                       if(cnt==0) {
+                           str = str.concat(" education=1");
+                           cnt++;
+                       }else{
                        str = str.concat(" or education=1");
+                       }
                    }
                    if(environment.isSelected())
                    {
+                       if(cnt==0) {
+                           str = str.concat(" environment=1");
+                        cnt++;
+                       }
                        str = str.concat(" or environment=1");
                    }
                     if(healthcare.isSelected())
                     {
-                        str = str.concat(" or healthcare=1");
+                        if(cnt==0)
+                        {
+                            str = str.concat(" helthcare=1");
+                            cnt++;
+                        }
+                        str = str.concat(" or helthcare=1");
                     }
                     if(innovation.isSelected())
                     {
+                        if(cnt==0) {
+                            str = str.concat(" innovation=1");
+                            cnt++;
+                        }
                         str = str.concat(" or innovation=1");
                     }
                     if(socialServices.isSelected())
                     {
-                        str = str.concat(" or socialServices=1");
+                        if(cnt==0) {
+                            str = str.concat(" social_services=1");
+                            cnt++;
+                        }
+                        str = str.concat(" or social_services=1");
                     }
                     if(renewableEnergy.isSelected())
                     {
-                        str = str.concat(" or renewableEnergy=1");
+                        if(cnt==0) {
+                            str = str.concat(" renewable_energy=1");
+                            cnt++;
+                        }
+                        str = str.concat(" or renewable_energy=1");
                     }
                     if(ruralDevelopment.isSelected())
                     {
-                        str = str.concat(" or ruralDevelopment=1");
+                        if(cnt==0) {
+                            str = str.concat(" rural_development=1");
+                            cnt++;
+                        }
+                        str = str.concat(" or rural_development=1");
                     }
                     System.out.println(str);
 
             Connection connection = ConnectionClass.getConnection();
             try {
                 Statement statement = con.createStatement();
-                statement.executeQuery(str);
+                ResultSet rs = statement.executeQuery(str);
+                while(rs.next())
+                {
+
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
