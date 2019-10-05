@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="com.controller.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1080.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
@@ -46,7 +46,7 @@
                                                 <CheckBox fx:id="renewableEnergy" mnemonicParsing="false" text="Renewable Energy" />
                                                 <CheckBox fx:id="ruralDevelopment" mnemonicParsing="false" text="Rural Development" />
                                                 <ChoiceBox fx:id="searchChoiceBox" prefWidth="150.0" />
-                                                <Button fx:id="submitCategories" mnemonicParsing="false" text="Submit" />
+                                                <Button fx:id="submitCategories" onMouseClicked="#submitButtonCategories" mnemonicParsing="false" text="Submit" />
                                              </children>
                                           </FlowPane>
                                           <VBox>
