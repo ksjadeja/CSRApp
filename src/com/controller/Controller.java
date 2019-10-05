@@ -30,7 +30,7 @@ public class Controller {
     public CheckBox innovation;
     public CheckBox research;
     public CheckBox renewableEnergy;
-    public CheckBox ruralDevelopment;   
+    public CheckBox ruralDevelopment;
     public Button submitCategories;
 
     @FXML
@@ -42,237 +42,179 @@ public class Controller {
     @FXML
     public VBox searchListVBox;
 
-    public void initialize(){
-        try {
+    public void initialize() {
+//        try {
 //            searchChoiceBox =new ChoiceBox();
-            searchChoiceBox.getItems().addAll("NGO","Products");
+        searchChoiceBox.getItems().addAll("NGO", "Individuals");
 //            searchChoiceBox.setValue("Products");
 //            searchChoiceBox.setVisible(true);
-            Connection conn = ConnectionClass.getConnection();
-            Statement statement = conn.createStatement();
-            ResultSet res = statement.executeQuery("SELECT * FROM projects");
-            DisplayBox displayBox;
-            List<Text> list = new ArrayList<>();
-            list.add(new Text("social_services"));
-            list.add(new Text("environment"));
-            while (res.next()){
-                displayBox = new DisplayBox(list,res.getString("photo1"),res.getString("project_title"),new Text(res.getString("project_intro")),"projects");
-                searchListVBox.getChildren().add(displayBox);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+//            Connection conn = ConnectionClass.getConnection();
+//            Statement statement = conn.createStatement();
+//            ResultSet res = statement.executeQuery("SELECT * FROM projects");
+//            DisplayBox displayBox;
+//            List<Text> list = new ArrayList<>();
+//            list.add(new Text("social_services"));
+//            list.add(new Text("environment"));
+//            while (res.next()) {
+//                displayBox = new DisplayBox(list, res.getString("photo1"), res.getString("project_title"), new Text(res.getString("project_intro")), "projects");
+//                searchListVBox.getChildren().add(displayBox);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
     }
-
-    public void onClick_LoginButton()
-    {
+    public void onClick_LoginButton(){
         String loginType = choiceBox.getValue();
-        if(loginType.equals("Company"))
-        {
+        if (loginType.equals("Company")) {
             CompanyBean companyBean = new CompanyBean();
             String userName = userTextField.getText();
             String password = passwordTextField.getText();
             Connection con = ConnectionClass.getConnection();
             try {
                 Statement statement = con.createStatement();
-                ResultSet rs = statement.executeQuery("SELECT * FROM company where username="+userName+" AND password ="+password);
-                while(rs.next())
-                {
+                ResultSet rs = statement.executeQuery("SELECT * FROM company where username=" + userName + " AND password =" + password);
+                while (rs.next()) {
 
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }else if(loginType.equals("NGO")){
+        } else if (loginType.equals("NGO")) {
 
-        }else{
+        } else {
 
         }
     }
 
     public void submitButtonCategories(MouseEvent mouseEvent) {
-        String type ="";
-                type =searchChoiceBox.getValue().toString();
-        String tableName="";
-        if(type.equals("NGO")) {
+        searchListVBox.getChildren().clear();
+        String type = "";
+        type = searchChoiceBox.getValue().toString();
+        String tableName = "";
+        if (type.equals("NGO")) {
             tableName = "ngos";
-        }
-        else {
+        } else {
             tableName = "projects";
         }
-            Connection con = ConnectionClass.getConnection();
+        Connection con = ConnectionClass.getConnection();
 
-                int cnt=0;
-                String str="select * from "+tableName+" where ";
-                   if(research.isSelected())
-                   {
-                      if(cnt==0)
-                      {
-                          str = str.concat("research=1");
-                          cnt++;
-                      }
-                      else
-                       str = str.concat("or research=1");
-                   }
-                   if(education.isSelected())
-                   {
-                       if(cnt==0) {
-                           str = str.concat(" education=1");
-                           cnt++;
-                       }else{
-                       str = str.concat(" or education=1");
-                       }
-                   }
-                   if(environment.isSelected())
-                   {
-                       if(cnt==0) {
-                           str = str.concat(" environment=1");
-                        cnt++;
-                       }
-                       else
-                       str = str.concat(" or environment=1");
-                   }
-                    if(healthcare.isSelected())
-                    {
-                        if(cnt==0)
-                        {
-                            str = str.concat(" helthcare=1");
-                            cnt++;
-                        }
-                        else
-                        str = str.concat(" or helthcare=1");
-                    }
-                    if(innovation.isSelected())
-                    {
-                        if(cnt==0) {
-                            str = str.concat(" innovation=1");
-                            cnt++;
-                        }
-                        else
-                        str = str.concat(" or innovation=1");
-                    }
-                    if(socialServices.isSelected())
-                    {
-                        if(cnt==0) {
-                            str = str.concat(" social_services=1");
-                            cnt++;
-                        }
-                        else
-                        str = str.concat(" or social_services=1");
-                    }
-                    if(renewableEnergy.isSelected())
-                    {
-                        if(cnt==0) {
-                            str = str.concat(" renewable_energy=1");
-                            cnt++;
-                        }
-                        else
-                        str = str.concat(" or renewable_energy=1");
-                    }
-                    if(ruralDevelopment.isSelected())
-                    {
-                        if(cnt==0) {
-                            str = str.concat(" rural_development=1");
-                            cnt++;
-                        }
-                        else
-                        str = str.concat(" or rural_development=1");
-                    }
-                    System.out.println(str);
-
-            Connection connection = ConnectionClass.getConnection();
-            try {
-                Statement statement = con.createStatement();
-                ResultSet rs = statement.executeQuery(str);
-                while(rs.next())
-                {
-
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+        int cnt = 0;
+        String str = "select * from " + tableName + " where ";
+        if (research.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat("research=1");
+                cnt++;
+            } else
+                str = str.concat("or research=1");
+        }
+        if (education.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" education=1");
+                cnt++;
+            } else {
+                str = str.concat(" or education=1");
             }
+        }
+        if (environment.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" environment=1");
+                cnt++;
+            } else
+                str = str.concat(" or environment=1");
+        }
+        if (healthcare.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" helthcare=1");
+                cnt++;
+            } else
+                str = str.concat(" or helthcare=1");
+        }
+        if (innovation.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" innovation=1");
+                cnt++;
+            } else
+                str = str.concat(" or innovation=1");
+        }
+        if (socialServices.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" social_services=1");
+                cnt++;
+            } else
+                str = str.concat(" or social_services=1");
+        }
+        if (renewableEnergy.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" renewable_energy=1");
+                cnt++;
+            } else
+                str = str.concat(" or renewable_energy=1");
+        }
+        if (ruralDevelopment.isSelected()) {
+            if (cnt == 0) {
+                str = str.concat(" rural_development=1");
+                cnt++;
+            } else
+                str = str.concat(" or rural_development=1");
+        }
+        System.out.println(str);
+
+        Connection connection = ConnectionClass.getConnection();
+        try {
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(str);
+            DisplayBox displayBox2;
+            List<Text> list = new ArrayList<>();
+//            list.add(new Text("social_services"));
+//            list.add(new Text("environment"));
+            while (rs.next()) {
+                if(rs.getInt("education")==1)
+                {
+                    list.add(new Text("education"));
+                }
+                if(rs.getInt("social_services")==1)
+                {
+                    list.add(new Text("social_services"));
+                }
+                if(rs.getInt("environment")==1)
+                {
+                    list.add(new Text("environment"));
+                }
+                if(rs.getInt("healthcare")==1)
+                {
+                    list.add(new Text("healthcare"));
+                }
+                if(rs.getInt("innovation")==1)
+                {
+                    list.add(new Text("innovation"));
+                }
+                if(rs.getInt("research")==1)
+                {
+                    list.add(new Text("research"));
+                }
+                if(rs.getInt("renewable_energy")==1)
+                {
+                    list.add(new Text("renewable_energy"));
+                }
+                if(rs.getInt("rural_development")==1)
+                {
+                    list.add(new Text("rural_development"));
+                }
+                if(tableName.equals("ngos"))
+                {
+                    displayBox2 = new DisplayBox(list, rs.getString("logo"), rs.getString("name"), new Text(rs.getString("intro")), "ngos");
+                    searchListVBox.getChildren().add(displayBox2);
+                    list.clear();
+                }else{
+                    displayBox2 = new DisplayBox(list, rs.getString("logo"), rs.getString("project_title"), new Text(rs.getString("project_intro")), "projects");
+                    searchListVBox.getChildren().add(displayBox2);
+                    list.clear();
+                }
+//                searchListVBox.getChildren().add(displayBox2);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-//    public void submitButtonCategories()
-//    {
-//        String type = searchChoiceBox.getValue();
-//        String tableName;
-//        if(type.equals("NGO")) {
-//            tableName = "ngo";
-//        }
-//        else {
-//            tableName = "products";
-//        }
-//            Connection con = ConnectionClass.getConnection();
-//
-//                int cnt=0;
-//                String str="select * from "+tableName+" where ";
-//                   if(research.isSelected())
-//                   {
-//                       str = str.concat("research=1");
-//                   }
-//                   if(education.isSelected())
-//                   {
-//                       str = str.concat("or education=1");
-//                   }
-//                   if(environment.isSelected())
-//                   {
-//                       str = str.concat("or environment=1");
-//                   }
-//                    if(healthcare.isSelected())
-//                    {
-//                        str = str.concat("or healthcare=1");
-//                    }
-//                    if(innovation.isSelected())
-//                    {
-//                        str = str.concat("or innovation=1");
-//                    }
-//                    if(socialServices.isSelected())
-//                    {
-//                        str = str.concat("or socialServices=1");
-//                    }
-//                    if(renewableEnergy.isSelected())
-//                    {
-//                        str = str.concat("or renewableEnergy=1");
-//                    }
-//                    if(ruralDevelopment.isSelected())
-//                    {
-//                        str = str.concat("or ruralDevelopment=1");
-//                    }
-//                    System.out.println(str);
-//
-//            Connection connection = ConnectionClass.getConnection();
-//            try {
-//                Statement statement = con.createStatement();
-//                statement.executeQuery(str);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-    }
-
-// import java.util.ArrayList;
-// import java.util.List;
-
-// public class Controller {
-//     @FXML
-//     public VBox searchListVBox;
-
-//     public void initialize(){
-//         try {
-//             Connection conn = ConnectionClass.getConnection();
-//             Statement statement = conn.createStatement();
-//             ResultSet res = statement.executeQuery("SELECT * FROM projects");
-//             DisplayBox displayBox;
-//             List<Text> list = new ArrayList<>();
-//             list.add(new Text("social_services"));
-//             list.add(new Text("environment"));
-//             while (res.next()){
-//                 displayBox = new DisplayBox(list,res.getString("photo1"),res.getString("project_title"),new Text(res.getString("project_intro")),"projects");
-//                 searchListVBox.getChildren().add(displayBox);
-//             }
-//         }catch (SQLException e){
-//             e.printStackTrace();
-//         }
-//     }
-
-// }
+}

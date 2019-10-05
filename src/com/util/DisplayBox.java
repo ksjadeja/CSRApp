@@ -78,6 +78,7 @@ public class DisplayBox extends VBox {
         try {
             Connection conn = ConnectionClass.getConnection();
             Statement statement = conn.createStatement();
+//            if(table.equals(""))
             ResultSet res = statement.executeQuery("SELECT * from "+ table +" where project_title='"+title+"';");
             if(res.next()){
                 ImageView img1 = new ImageView(res.getString("photo1")+".jpg");
