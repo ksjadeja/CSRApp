@@ -41,19 +41,25 @@ public class LoginController {
         String loginType = loginChoiceBox.getValue().toString();
         System.out.println("started");
         if (loginType.equals("company")) {
+            System.out.println("login type company");
             CompanyBean companyBean = new CompanyBean();
             String userName = username.getText();
             String pass = password.getText();
             Connection con = ConnectionClass.getConnection();
             try {
+                System.out.println("inside try....//");
                 Statement statement = con.createStatement();
                 ResultSet res = statement.executeQuery("SELECT * FROM company_credentials where username='" + userName + "' AND password='" + password.getText()+"';");
                 if (res.next()) {
+                    System.out.println("result gotcha ..");
                     label.setText("Successful");
+                    Controller.username=userName;
+                    System.out.println("usernme set");
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/com/FXML/Main.fxml"));
                     Parent root = loader.load();
                     ((Stage) loginButton.getScene().getWindow()).close();
+                    System.out.println("login button closes window");
                     Stage primaryStage = new Stage();
                     primaryStage.setTitle("CSR App");
                     primaryStage.setScene(new Scene(root, 800, 750));

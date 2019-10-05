@@ -6,9 +6,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -25,7 +24,7 @@ import java.util.List;
 public class DisplayBox extends VBox {
 
     FlowPane flowPane;
-    ImageView logo;
+//    ImageView logo;
     Text name;
     Text intro;
     HBox hBox;
@@ -34,11 +33,18 @@ public class DisplayBox extends VBox {
     Accordion accordion;
     TitledPane titledPane;
 
-    public DisplayBox(List<Text> tags, String image, String title, Text intro, String table){
-        flowPane = new FlowPane();
-        flowPane.getChildren().addAll(tags);
+    public DisplayBox(List<Text> tags, String title, Text intro, String table){
 
-        logo=new ImageView(image);
+//    public DisplayBox(List<Text> tags, String image, String title, Text intro, String table){
+        if(!tags.isEmpty()){
+            flowPane = new FlowPane();
+            flowPane.getChildren().addAll(tags);
+            flowPane.setVgap(10);
+            flowPane.setHgap(10);
+        }
+
+
+//        logo=new ImageView(image);
         this.name=new Text(title);
         this.intro=intro;
 
@@ -47,19 +53,34 @@ public class DisplayBox extends VBox {
         try {
             Connection conn = ConnectionClass.getConnection();
             Statement statement = conn.createStatement();
-            ResultSet res = statement.executeQuery("SELECT * from "+ table +" where project_title='"+title+"';");
+            ResultSet res;
+            if(table.equals("ngos")) {
+                res= statement.executeQuery("SELECT * from "+ table +" where name='"+title+"';");
+            }else{
+                res= statement.executeQuery("SELECT * from "+ table +" where project_name='"+title+"';");
+
+            }
+
             if(res.next()){
-                ImageView img1 = new ImageView(res.getString("photo1"));
-                ImageView img2 = new ImageView(res.getString("photo2"));
-                img1.setFitHeight(200);img2.setFitWidth(200);
-                Text text1 = new Text(res.getString("project_desc"));
-                Text text2 = new Text(res.getString("project_features"));
+//                ImageView img1 = new ImageView(res.getString("photo1"));
+//                ImageView img2 = new ImageView(res.getString("photo2"));
+//                img1.setFitHeight(200);img2.setFitWidth(200);
+                Text text1,text2;
+                if(table.equals("ngos")) {
+                    text1= new Text(res.getString("intro"));
+                    text2 = new Text(res.getString("desc"));
+                }else{
+                    text1 = new Text(res.getString("desc"));
+                    text2 = new Text(res.getString("features"));
+                }
                 text1.setFont(new Font("Arial Italic",13));
                 text1.setFont(new Font("Arial Bold",13));
                 TextFlow tf1 = new TextFlow();tf1.setTextAlignment(TextAlignment.JUSTIFY);tf1.getChildren().add(text1);
                 TextFlow tf2 = new TextFlow();tf2.setTextAlignment(TextAlignment.JUSTIFY);tf2.getChildren().add(text2);
-                hBox1.getChildren().addAll(img1,tf1);
-                hBox2.getChildren().addAll(img2,tf2);
+//                hBox1.getChildren().addAll(img1,tf1);
+//                hBox2.getChildren().addAll(img2,tf2);
+                hBox1.getChildren().addAll(tf1);
+                hBox2.getChildren().addAll(tf2);
                 colab=new Button("Colab");
                 colab.setOnAction(e->onClickColab());
                 titledPane = new TitledPane("read more",new VBox(hBox1,hBox2,colab));
@@ -71,14 +92,24 @@ public class DisplayBox extends VBox {
         }
 
         init();
+
+        if(flowPane==null){
+            System.out.println("its flaw");
+//            getChildren().addAll(flowPane,hBox,accordion);
+//            System.out.println(getChildren());
+        }else if(hBox==null){
+            System.out.println("bhox 0");
+//            getChildren().addAll(hBox,accordion);
+        }else {
+            System.out.println("accordion 0");
+        }
     }
 
     private void init(){
-        flowPane.setVgap(10);
-        flowPane.setHgap(10);
 
-        logo.setFitWidth(300);
-        logo.setFitHeight(300);
+
+//        logo.setFitWidth(300);
+//        logo.setFitHeight(300);
 
         name.setFont(new Font("Times New Roman Bold",14));
 
@@ -88,11 +119,12 @@ public class DisplayBox extends VBox {
         vBox.setPadding(new Insets(5,5,5,5));
 
         hBox=new HBox();
-        hBox.getChildren().addAll(logo,vBox);
+        hBox.getChildren().addAll(vBox);
+//        hBox.getChildren().addAll(logo,vBox);
+
         hBox.setSpacing(15);
         hBox.setPadding(new Insets(10,10,10,10));
 
-        getChildren().addAll(flowPane,hBox,accordion);
 
     }
 

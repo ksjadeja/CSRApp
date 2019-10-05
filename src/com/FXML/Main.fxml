@@ -9,9 +9,12 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Controller">
    <children>
@@ -19,7 +22,42 @@
          <tabs>
             <Tab text="Dashboard">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <VBox>
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <ImageView fx:id="userLogo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                              <Text fx:id="user" strokeType="OUTSIDE" strokeWidth="0.0" text="user" textAlignment="JUSTIFY">
+                                 <font>
+                                    <Font size="41.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Accordion>
+                           <panes>
+                              <TitledPane fx:id="ngosPane" animated="false" text="Associated NGO ">
+                                 <content>
+                                    <VBox fx:id="ngosVBox" />
+                                 </content></TitledPane>
+                              <TitledPane fx:id="projectsPane" animated="false" text="Projects">
+                                 <content>
+                                    <VBox fx:id="projectsVBox" />
+                                 </content></TitledPane>
+                              <TitledPane fx:id="eventsPane" animated="false" text="Events">
+                                 <content>
+                                    <VBox fx:id="eventsVBox" />
+                                 </content></TitledPane>
+                           </panes>
+                        </Accordion>
+                     </children>
+                  </VBox>
                </content>
             </Tab>
             <Tab text="Search">
@@ -46,7 +84,7 @@
                                                 <CheckBox fx:id="renewableEnergy" mnemonicParsing="false" text="Renewable Energy" />
                                                 <CheckBox fx:id="ruralDevelopment" mnemonicParsing="false" text="Rural Development" />
                                                 <ChoiceBox fx:id="searchChoiceBox" prefWidth="150.0" />
-                                                <Button fx:id="submitCategories" onMouseClicked="#submitButtonCategories" mnemonicParsing="false" text="Submit" />
+                                                <Button fx:id="submitCategories" mnemonicParsing="false" text="Submit" />
                                              </children>
                                           </FlowPane>
                                           <VBox>
