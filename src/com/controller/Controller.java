@@ -98,7 +98,7 @@ public class Controller {
             tableName = "ngos";
         }
         else {
-            tableName = "products";
+            tableName = "projects";
         }
             Connection con = ConnectionClass.getConnection();
 
@@ -111,6 +111,7 @@ public class Controller {
                           str = str.concat("research=1");
                           cnt++;
                       }
+                      else
                        str = str.concat("or research=1");
                    }
                    if(education.isSelected())
@@ -128,6 +129,7 @@ public class Controller {
                            str = str.concat(" environment=1");
                         cnt++;
                        }
+                       else
                        str = str.concat(" or environment=1");
                    }
                     if(healthcare.isSelected())
@@ -137,6 +139,7 @@ public class Controller {
                             str = str.concat(" helthcare=1");
                             cnt++;
                         }
+                        else
                         str = str.concat(" or helthcare=1");
                     }
                     if(innovation.isSelected())
@@ -145,6 +148,7 @@ public class Controller {
                             str = str.concat(" innovation=1");
                             cnt++;
                         }
+                        else
                         str = str.concat(" or innovation=1");
                     }
                     if(socialServices.isSelected())
@@ -153,6 +157,7 @@ public class Controller {
                             str = str.concat(" social_services=1");
                             cnt++;
                         }
+                        else
                         str = str.concat(" or social_services=1");
                     }
                     if(renewableEnergy.isSelected())
@@ -161,6 +166,7 @@ public class Controller {
                             str = str.concat(" renewable_energy=1");
                             cnt++;
                         }
+                        else
                         str = str.concat(" or renewable_energy=1");
                     }
                     if(ruralDevelopment.isSelected())
@@ -169,6 +175,7 @@ public class Controller {
                             str = str.concat(" rural_development=1");
                             cnt++;
                         }
+                        else
                         str = str.concat(" or rural_development=1");
                     }
                     System.out.println(str);
