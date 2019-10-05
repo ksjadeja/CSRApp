@@ -2,23 +2,15 @@ package com.controller;
 
 import com.Dao.ConnectionClass;
 import com.bean.CompanyBean;
-import com.util.CompanyPieChart;
-import com.util.NGOGraph;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import com.util.DisplayBox;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +36,6 @@ public class Controller {
     public CheckBox renewableEnergy;
     public CheckBox ruralDevelopment;
     public Button submitCategories;
-    public VBox chartVBox;
 
     public static String username;
 
@@ -219,107 +210,5 @@ public class Controller {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public void loadCharts() {
-        NGOGraph graph = new NGOGraph(new CategoryAxis(),new NumberAxis());
-       // PieChart pieChart = new PieChart();
-        String userName ="MICROSOFT";
-        try {
-            graph.getData().add(graph.createData());
-
-            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-            Connection con = ConnectionClass.getConnection();
-            Statement stmt;
-            stmt = con.createStatement();
-            JSONObject jsonObject = null;
-            JSONObject innerJson = null;
-            JSONArray jsonArray = null;
-            int amt = 0;
-            String name = "";
-            int x = 0;
-            ResultSet rs = stmt.executeQuery("SELECT * FROM companies WHERE name='"+userName  +"';");
-            if (rs.next()) {
-                jsonObject = new JSONObject(rs.getString("projects"));
-                x = jsonObject.getInt("count");
-                System.out.println("x is :"+x);
-                jsonArray = jsonObject.getJSONArray("projects");
-                for (int i = 0; i < x; i++) {
-                    System.out.println("Hola i "+i);
-                    innerJson = (JSONObject) jsonArray.get(i);
-                    amt = innerJson.getInt("amt");
-                    name = innerJson.getString("name");
-                    name = name.concat("(" + innerJson.getString("type") + ")");
-                    pieChartData.add(new PieChart.Data(name, amt));
-                    System.out.println(pieChartData.get(0));
-                }
-                PieChart pieChart = new PieChart(pieChartData);
-                pieChart.setTitle("Project - Contribution");
-                pieChart.setLegendSide(Side.LEFT);
-                pieChart.setLabelsVisible(true);
-
-                Label caption = new Label("");
-                caption.setTextFill(Color.DARKBLUE);
-                caption.setStyle("-fx-font: 24 arial;");
-                caption.depthTestProperty();
-//                for (final PieChart.Data data : pieChart.getData()) {
-//                    data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
-//                            e -> {
-//                                double total = 0;
-//                                for (PieChart.Data d : pieChart.getData()) {
-//                                    total += d.getPieValue();
-//                                }
-//                                caption.setTranslateX(e.getSceneX());
-//                                caption.setTranslateY(e.getSceneY());
-//                                String text = String.format("%.1f%%", 100*data.getPieValue()/total) ;
-//                                caption.setText(text);
-//                                caption.setVisible(true);
-////                                System.out.println("c x"+caption.getTranslateX());
-//                                System.out.println("mouse entered");
-//                            }
-//                    );
-//                }
-                for (final PieChart.Data data : pieChart.getData()) {
-                    data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
-                            new EventHandler<MouseEvent>() {
-                                @Override public void handle(MouseEvent e) {
-                                    caption.setTranslateX(e.getSceneX());
-                                    caption.setTranslateY(e.getSceneY());
-                                    caption.setText(String.valueOf(data.getPieValue()) + "%");
-                                    caption.setVisible(true);
-                                    System.out.println("mouse enter");
-                                }
-                            });
-                }
-//                2
-                ObservableList<PieChart.Data> pieChartData2 = FXCollections.observableArrayList();
-                String name2 = "Akshaya Foundation";
-                ResultSet rs2 = stmt.executeQuery("SELECT * from  ngos where name= '"+name2+"' ;");
-
-                if(rs2.next())
-                {
-                    jsonObject = new JSONObject(rs2.getString("companies"));
-                    x=jsonObject.getInt("count");
-                    jsonArray = jsonObject.getJSONArray("companies");
-                    for(int i=0;i<x;i++)
-                    {
-                        innerJson = ((JSONObject) jsonArray.get(i));
-                        amt = innerJson.getInt("amt");
-                        name = innerJson.getString("name");
-                        pieChartData2.add(new PieChart.Data(name,amt));
-                    }
-                }
-                PieChart pieChart2 = new PieChart(pieChartData2);
-                pieChart2.setTitle("Team - Contribution");
-                pieChart2.setLegendSide(Side.LEFT);
-                pieChart2.setLabelsVisible(true);
-
-                chartVBox.getChildren().addAll(graph,pieChart,pieChart2);
-            }
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
     }
 }
