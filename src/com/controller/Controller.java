@@ -125,10 +125,10 @@ public class Controller {
         }
         if (healthcare.isSelected()) {
             if (cnt == 0) {
-                str = str.concat(" helthcare=1");
+                str = str.concat(" healthcare=1");
                 cnt++;
             } else
-                str = str.concat(" or helthcare=1");
+                str = str.concat(" or healthcare=1");
         }
         if (innovation.isSelected()) {
             if (cnt == 0) {
