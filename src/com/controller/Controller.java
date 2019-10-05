@@ -43,49 +43,31 @@ public class Controller {
     public VBox searchListVBox;
 
     public void initialize() {
-//        try {
-//            searchChoiceBox =new ChoiceBox();
         searchChoiceBox.getItems().addAll("NGO", "Individuals");
-//            searchChoiceBox.setValue("Products");
-//            searchChoiceBox.setVisible(true);
-//            Connection conn = ConnectionClass.getConnection();
-//            Statement statement = conn.createStatement();
-//            ResultSet res = statement.executeQuery("SELECT * FROM projects");
-//            DisplayBox displayBox;
-//            List<Text> list = new ArrayList<>();
-//            list.add(new Text("social_services"));
-//            list.add(new Text("environment"));
-//            while (res.next()) {
-//                displayBox = new DisplayBox(list, res.getString("photo1"), res.getString("project_title"), new Text(res.getString("project_intro")), "projects");
-//                searchListVBox.getChildren().add(displayBox);
+
+    }
+//    public void onClick_LoginButton(){
+//        String loginType = choiceBox.getValue();
+//        if (loginType.equals("Company")) {
+//            CompanyBean companyBean = new CompanyBean();
+//            String userName = userTextField.getText();
+//            String password = passwordTextField.getText();
+//            Connection con = ConnectionClass.getConnection();
+//            try {
+//                Statement statement = con.createStatement();
+//                ResultSet rs = statement.executeQuery("SELECT * FROM company where username=" + userName + " AND password =" + password);
+//                while (rs.next()) {
+//
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
 //            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
+//        } else if (loginType.equals("NGO")) {
+//
+//        } else {
+//
 //        }
 //    }
-    }
-    public void onClick_LoginButton(){
-        String loginType = choiceBox.getValue();
-        if (loginType.equals("Company")) {
-            CompanyBean companyBean = new CompanyBean();
-            String userName = userTextField.getText();
-            String password = passwordTextField.getText();
-            Connection con = ConnectionClass.getConnection();
-            try {
-                Statement statement = con.createStatement();
-                ResultSet rs = statement.executeQuery("SELECT * FROM company where username=" + userName + " AND password =" + password);
-                while (rs.next()) {
-
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else if (loginType.equals("NGO")) {
-
-        } else {
-
-        }
-    }
 
     public void submitButtonCategories(MouseEvent mouseEvent) {
         searchListVBox.getChildren().clear();
@@ -166,8 +148,6 @@ public class Controller {
             ResultSet rs = statement.executeQuery(str);
             DisplayBox displayBox2;
             List<Text> list = new ArrayList<>();
-//            list.add(new Text("social_services"));
-//            list.add(new Text("environment"));
             while (rs.next()) {
                 if(rs.getInt("education")==1)
                 {
