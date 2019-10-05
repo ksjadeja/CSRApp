@@ -40,41 +40,10 @@ public class DisplayBox extends VBox {
         flowPane = new FlowPane();
         flowPane.getChildren().addAll(tags);
 
-        logo=new ImageView(image+".jpg");
+        logo=new ImageView(image);
         this.name=new Text(title);
         this.intro=intro;
 
-//        titledPane.setOnMouseClicked(new EventHandler<MouseEvent>(){
-//            @Override
-//            public void handle(MouseEvent event) {
-////                accordion.getPanes().clear();
-//                System.out.println("Accordion here");
-//                HBox hBox1 = new HBox();
-//                HBox hBox2 = new HBox();
-//
-//                try {
-//                    Connection conn = ConnectionClass.getConnection();
-//                    Statement statement = conn.createStatement();
-//                    ResultSet res = statement.executeQuery("SELECT * from "+ table +" where project_title='"+title+"';");
-//                    if(res.next()){
-//                        ImageView img1 = new ImageView(res.getString("photo1")+".jpg");
-//                        ImageView img2 = new ImageView(res.getString("photo2")+".jpg");
-//                        Text text1 = new Text(res.getString("project_desc"));
-//                        Text text2 = new Text(res.getString("project_desc"));
-//                        text1.setFont(new Font("Arial Italic",13));
-//                        text1.setFont(new Font("Arial Bold",13));
-//                        TextFlow tf1 = new TextFlow();tf1.setTextAlignment(TextAlignment.JUSTIFY);tf1.getChildren().add(text1);
-//                        TextFlow tf2 = new TextFlow();tf2.setTextAlignment(TextAlignment.JUSTIFY);tf2.getChildren().add(text2);
-//                        System.out.println("pro desc:"+res.getString("project_desc"));
-//                        hBox1.getChildren().addAll(img1,tf1);
-//                        hBox2.getChildren().addAll(img2,tf2);
-//                        titledPane.setContent(new VBox(hBox1,hBox2,colab));
-//                    }
-//                }catch (SQLException e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
         HBox hBox1 = new HBox();
                 HBox hBox2 = new HBox();
         try {
@@ -94,7 +63,7 @@ public class DisplayBox extends VBox {
                 img2.setFitHeight(200);
                 img2.setFitWidth(200);
                 Text text1 = new Text(res.getString("project_desc"));
-                Text text2 = new Text(res.getString("project_desc"));
+                Text text2 = new Text(res.getString("project_features"));
                 text1.setFont(new Font("Arial Italic",13));
                 text1.setFont(new Font("Arial Bold",13));
                 TextFlow tf1 = new TextFlow();tf1.setTextAlignment(TextAlignment.JUSTIFY);tf1.getChildren().add(text1);
