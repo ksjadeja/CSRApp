@@ -9,30 +9,30 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="241.0" layoutY="14.0" text="Login Page">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="95.0" layoutY="103.0" text="Username">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="95.0" layoutY="160.0" text="Password">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="username" layoutX="226.0" layoutY="104.0" prefHeight="26.0" prefWidth="194.0" />
-      <PasswordField fx:id="password" layoutX="226.0" layoutY="161.0" prefHeight="26.0" prefWidth="194.0" />
-      <Button fx:id="loginButton" layoutX="279.0" layoutY="265.0" mnemonicParsing="false" text="Login">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <ChoiceBox fx:id="loginChoiceBox" layoutX="233.0" layoutY="213.0" prefWidth="150.0" />
-      <Label fx:id="label" layoutX="294.0" layoutY="330.0" />
-   </children>
+    <children>
+        <Label layoutX="241.0" layoutY="14.0" text="Login Page">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="95.0" layoutY="103.0" text="Username">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="95.0" layoutY="160.0" text="Password">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="username" layoutX="226.0" layoutY="104.0" prefHeight="26.0" prefWidth="194.0" />
+        <PasswordField fx:id="password" layoutX="226.0" layoutY="161.0" prefHeight="26.0" prefWidth="194.0" />
+        <Button fx:id="loginButton" layoutX="279.0" layoutY="265.0" mnemonicParsing="false" text="Login">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <ChoiceBox fx:id="loginChoiceBox" layoutX="233.0" layoutY="213.0" prefWidth="150.0" />
+        <Label fx:id="label" layoutX="294.0" layoutY="330.0" />
+    </children>
 </AnchorPane>
