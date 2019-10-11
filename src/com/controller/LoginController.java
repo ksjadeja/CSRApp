@@ -49,10 +49,12 @@ public class LoginController {
                 Statement statement = con.createStatement();
                 ResultSet res = statement.executeQuery("SELECT * FROM company_credentials where username='" + userName + "' AND password='" + password.getText()+"';");
                 if (res.next()) {
+                    Controller.username=userName;
                     label.setText("Successful");
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/com/FXML/Main.fxml"));
                     Parent root = loader.load();
+
                     ((Stage) loginButton.getScene().getWindow()).close();
                     Stage primaryStage = new Stage();
                     primaryStage.setTitle("CSR App");
