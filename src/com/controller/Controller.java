@@ -7,10 +7,15 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import com.util.DisplayBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,59 +57,10 @@ public class Controller {
 
     List<Text> categoryList = new ArrayList<>();
 
-
     @FXML
-    public VBox ngosVBox,eventsVBox,projectsVBox;
-
-    public void initialize() {
-        user.setText(username);
-        initDashboard();
-
-        ngosList = FXCollections.observableArrayList();
-        projectsList = FXCollections.observableArrayList();
-        eventsList = FXCollections.observableArrayList();
-
-        submitCategories.setOnAction(e->{
-
-            int i=0;
-
-            if (education.isSelected()) {
-                category[i]="education";categoryList.add(new Text("education"));i++;
-            }
-            if (environment.isSelected()) {
-                category[i]="environment";categoryList.add(new Text("environment"));i++;
-            }
-            if (socialServices.isSelected()) {
-                category[i]="social_services";categoryList.add(new Text("social_services"));i++;
-            }
-            if (healthcare.isSelected()) {
-                category[i]="healthcare";categoryList.add(new Text("healthcare"));i++;
-            }
-            if (innovation.isSelected()) {
-                category[i]="innovation";categoryList.add(new Text("innovation"));i++;
-            }
-            if (research.isSelected()) {
-                category[i]="research";categoryList.add(new Text("research"));i++;
-            }
-            if (renewableEnergy.isSelected()) {
-                category[i]="renewable_energy";categoryList.add(new Text("renewable_energy"));i++;
-            }
-            if (ruralDevelopment.isSelected()) {
-                category[i]="rural_development";categoryList.add(new Text("rural_development"));i++;
-    TextField passwordTextField;
-    public static ObservableList<DisplayBox> ngosList;
-    public static ObservableList<DisplayBox> projectsList;
-    public static ObservableList<DisplayBox> eventsList;
+    public VBox ngoVBox,eventsVBox,projectsVBox;
     @FXML
-    public VBox searchListVBox;
-    String category[] = new String[8];
-    @FXML
-    public VBox ngoVBox;
-    public VBox eventsVBox,projectsVBox;
-    @FXML
-    public Text user;
-    List<Text> categoryList = new ArrayList<>();
-    private List<Text> ngoCategoryList;
+    public VBox ngosVBox;
 
     public void initialize() {
         searchChoiceBox.getItems().addAll("NGO", "Individuals");
@@ -147,9 +103,9 @@ public class Controller {
             }
 
             if(searchChoiceBox.getValue().toString().contentEquals("NGO")){
-//                initSearch("ngos");
+                initSearch("ngos");
             }else{
-//                initSearch("individual_projects");
+                initSearch("individual_projects");
             }
         });
         user.setText(username);
@@ -188,82 +144,7 @@ public class Controller {
         });
         initDashboard();
     }
-    public List<Text> initSearch(String table){
-        searchListVBox.getChildren().clear();
-        List<Text> lst = new ArrayList<>();
 
-        Connection conn = ConnectionClass.getConnection();
-        try {
-            Statement statement = conn.createStatement();
-            ResultSet res;
-            for (int j=0;j<category.length;j++){
-                res=statement.executeQuery("SELECT * from "+table+" where "+category[j]+"=1;");
-                while (res.next()){
-                    if(table.equals("ngos")){
-                        if(res.getInt(category[j])==1)
-                            ngoCategoryList.add(new Text(category[j]));
-//                        searchListVBox.getChildren().addAll(new DisplayBox(categoryList,res.getString(""),res.getString("name"),new Text(res.getString("intro")),"ngos"));
-                    } else {
-                        searchListVBox.getChildren().addAll(new DisplayBox(categoryList,res.getString("project_name"),new Text(res.getString("features")),"individual_projects"));
-
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return ngoCategoryList;
-    }
-    public void initDashboard(){
-
-        try {
-            System.out.println("IniiDashBoard()");
-            System.out.println("username "+username);
-            List<String> ngolist=new ArrayList<>();
-            DisplayBox displayBox=null;
-            Connection conn =ConnectionClass.getConnection();
-            Statement statement = conn.createStatement();
-            ResultSet res =statement.executeQuery("SELECT * FROM companies WHERE name='"+username+"';");
-            JSONObject jsonObject=null;
-            JSONArray jsonArray=null;
-            JSONObject innerJson=null;
-            if (res.next()){
-                try {
-                    System.out.println("Inside try /");
-                    jsonObject = new JSONObject(res.getString("projects"));
-                    int count=jsonObject.getInt("count");
-                    jsonArray = jsonObject.getJSONArray("projects");
-                    for(int i=0;i<count;i++){
-                        System.out.println("cnt > 0");
-                        innerJson = (JSONObject) jsonArray.get(i);
-                        if(innerJson.getString("type").equals("NGO")){
-                            System.out.println("It's NGO");
-                            ngolist.add((innerJson.getString("name")));
-//                            initSearch();
-//                            getMyNgoCategories(innerJson.getString("name"),"ngos");
-//                            displayBox=
-//                                    new DisplayBox(res.getString("name"),new Text(res.getString("intro")),"ngos");
-                            System.out.println("Display box created "+ngosList);
-                            boolean add = ngosList.add(new DisplayBox(getMyNgoCategories(innerJson.getString("name"),"ngos"),res.getString("name"), new Text(res.getString("intro")), "ngos"));
-                            System.out.println("Added to list bool "+add);
-                            System.out.println("list "+ngosList);
-//                            ngoVBox.getChildren().add(displayBox);
-//                            boolean add = ngosList.add(displayBox);
-//                            System.out.println(" bool "+add);
-//                            ngoVBox.getChildren().add(displayBox);
-                        }else {
-//                            displayBox=new DisplayBox(addCategories(res,"projects",1),res.getString("logo"),res.getString("project_title"),new Text(res.getString("project_intro")),"projects");
-//                            projectsList.add(displayBox);
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
 
     private List<Text> getMyNgoCategories(String name,String tableName) {
         List<Text> list = new ArrayList<>();
@@ -317,6 +198,7 @@ public class Controller {
         return list;
     }
 
+/*
     public void submitButtonCategories() {
         searchListVBox.getChildren().clear();
         String type = "";
@@ -344,9 +226,6 @@ public class Controller {
                 cnt++;
             } else {
                 str = str.concat(" or education=1");
-
-
-
             }
 
             if(searchChoiceBox.getValue().toString().contentEquals("NGO")){
@@ -383,53 +262,58 @@ public class Controller {
         });
 
     }
-
-
+*/
 
     public void initDashboard(){
 
         try {
+            System.out.println("IniiDashBoard()");
+            System.out.println("username "+username);
             List<String> ngolist=new ArrayList<>();
-            DisplayBox displayBox;
+            DisplayBox displayBox=null;
             Connection conn =ConnectionClass.getConnection();
             Statement statement = conn.createStatement();
             ResultSet res =statement.executeQuery("SELECT * FROM companies WHERE name='"+username+"';");
-            System.out.println("just started");
+            JSONObject jsonObject=null;
+            JSONArray jsonArray=null;
+            JSONObject innerJson=null;
             if (res.next()){
                 try {
-                    System.out.println("Dashboard started");
-
-                    JSONObject jsonObject = new JSONObject(res.getString("projects"));
+                    System.out.println("Inside try /");
+                    jsonObject = new JSONObject(res.getString("projects"));
                     int count=jsonObject.getInt("count");
-                    JSONArray jsonArray =jsonObject.getJSONArray("projects");
+                    jsonArray = jsonObject.getJSONArray("projects");
                     for(int i=0;i<count;i++){
-                        if(jsonArray.getJSONObject(i).getString("type").equals("ngos")){
-                            displayBox=new DisplayBox(categoryList,res.getString("name"),new Text(res.getString("intro")),"ngos");
-                            ngosList.add(displayBox);
+                        System.out.println("cnt > 0");
+                        innerJson = (JSONObject) jsonArray.get(i);
+                        if(innerJson.getString("type").equals("NGO")){
+                            System.out.println("It's NGO");
+                            ngolist.add((innerJson.getString("name")));
+//                            initSearch();
+//                            getMyNgoCategories(innerJson.getString("name"),"ngos");
+//                            displayBox=
+//                                    new DisplayBox(res.getString("name"),new Text(res.getString("intro")),"ngos");
+                            System.out.println("Display box created "+ngosList);
+                            boolean add = ngosList.add(new DisplayBox(getMyNgoCategories(innerJson.getString("name"),"ngos"),res.getString("name"), new Text(res.getString("intro")), "ngos"));
+                            System.out.println("Added to list bool "+add);
+                            System.out.println("list "+ngosList);
+//                            ngoVBox.getChildren().add(displayBox);
+//                            boolean add = ngosList.add(displayBox);
+//                            System.out.println(" bool "+add);
+//                            ngoVBox.getChildren().add(displayBox);
                         }else {
-                            displayBox=new DisplayBox(categoryList,res.getString("name"),new Text(res.getString("intro")),"individual_projects");
-                            projectsList.add(displayBox);
+//                            displayBox=new DisplayBox(addCategories(res,"projects",1),res.getString("logo"),res.getString("project_title"),new Text(res.getString("project_intro")),"projects");
+//                            projectsList.add(displayBox);
                         }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                if(tableName.equals("ngos"))
-                {
-                    displayBox2 = new DisplayBox(list,rs.getString("name"), new Text(rs.getString("intro")), "ngos");
-                    searchListVBox.getChildren().add(displayBox2);
-                    list.clear();
-                }else{
-                    displayBox2 = new DisplayBox(list, rs.getString("project_title"), new Text(rs.getString("project_intro")), "projects");
-                    searchListVBox.getChildren().add(displayBox2);
-                    list.clear();
                 }
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
-
 
     public List<Text> getList(String table,String name){
         List<Text> list = new ArrayList<>();
@@ -452,7 +336,7 @@ public class Controller {
         return list;
     }
 
-    public void initSearch(String table){
+    public void initSearch (String table){
         searchListVBox.getChildren().clear();
         List<Text> lst = new ArrayList<>();
 
@@ -460,19 +344,21 @@ public class Controller {
         try {
             Statement statement = conn.createStatement();
             ResultSet res;
-            for (int j=0;j<category.length;j++){
-                res=statement.executeQuery("SELECT * from "+table+" where "+category[j]+"=1;");
-                while (res.next()){
-                    if(table.equals("ngos")){
-                        searchListVBox.getChildren().addAll(new DisplayBox(categoryList,res.getString("name"),new Text(res.getString("intro")),"ngos"));
+            for (int j = 0; j < category.length; j++) {
+                res = statement.executeQuery("SELECT * from " + table + " where " + category[j] + "=1;");
+                while (res.next()) {
+                    if (table.equals("ngos")) {
+                        searchListVBox.getChildren().addAll(new DisplayBox(categoryList, res.getString("name"), new Text(res.getString("intro")), "ngos"));
                     } else {
-                        searchListVBox.getChildren().addAll(new DisplayBox(categoryList,res.getString("project_name"),new Text(res.getString("features")),"individual_projects"));
+                        searchListVBox.getChildren().addAll(new DisplayBox(categoryList, res.getString("project_name"), new Text(res.getString("features")), "individual_projects"));
 
                     }
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
 
     public void loadCharts() {
         if (x == 0) {
@@ -576,4 +462,7 @@ public class Controller {
 
         }
     }
+
+
+
 }

@@ -134,6 +134,11 @@
                   </VBox>
                </content>
             </Tab>
+             <Tab onSelectionChanged="#loadCharts" text="Chart">
+                 <content>
+                     <VBox fx:id="chartVBox" prefHeight="200.0" prefWidth="100.0" />
+                 </content>
+             </Tab>
          </tabs>
       </TabPane>
    </children>
