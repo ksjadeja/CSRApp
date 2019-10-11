@@ -51,13 +51,14 @@ public class LoginController {
                 Statement statement = con.createStatement();
                 ResultSet res = statement.executeQuery("SELECT * FROM company_credentials where username='" + userName + "' AND password='" + password.getText()+"';");
                 if (res.next()) {
-                    System.out.println("result gotcha ..");
+                    Controller.username=userName;
                     label.setText("Successful");
                     Controller.username=userName;
                     System.out.println("usernme set");
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/com/FXML/Main.fxml"));
                     Parent root = loader.load();
+
                     ((Stage) loginButton.getScene().getWindow()).close();
                     System.out.println("login button closes window");
                     Stage primaryStage = new Stage();
