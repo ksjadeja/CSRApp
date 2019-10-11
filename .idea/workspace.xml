@@ -104,27 +104,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/util/DisplayBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-414">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1452">
+              <caret line="85" column="21" lean-forward="true" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="155" column="131" selection-start-line="155" selection-start-column="123" selection-end-line="155" selection-end-column="131" />
+            <state relative-caret-position="340">
+              <caret line="202" column="67" lean-forward="true" selection-start-line="202" selection-start-column="67" selection-end-line="202" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1499#4211#0" />
-                <element signature="e#8963#9611#0" />
               </folding>
             </state>
           </provider>
@@ -133,18 +128,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/FXML/LoginPage.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+            <state relative-caret-position="528">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-399">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="164">
+              <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Dao/ConnectionClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -155,8 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/FXML/Main.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6">
-              <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+            <state relative-caret-position="1422">
+              <caret line="107" column="104" selection-start-line="107" selection-start-column="104" selection-end-line="107" selection-end-column="104" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -217,7 +233,7 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1615" />
@@ -232,7 +248,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,11 +281,18 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="FXML" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CSRApp-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSRApp-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,7 +427,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53875000" />
+    <option name="totallyTimeSpent" value="55499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -417,9 +440,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1313673" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18632708" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -428,7 +450,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26308346" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3281471" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -552,7 +574,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/Dao/ConnectionClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="16" column="81" lean-forward="true" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
+          <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -596,8 +618,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-121">
-          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        <state relative-caret-position="220">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -617,34 +639,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/FXML/Main.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+        <state relative-caret-position="1422">
+          <caret line="107" column="104" selection-start-line="107" selection-start-column="104" selection-end-line="107" selection-end-column="104" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/util/DisplayBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-414">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/FXML/LoginPage.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+        <state relative-caret-position="528">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="164">
+          <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -653,13 +665,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="155" column="131" selection-start-line="155" selection-start-column="123" selection-end-line="155" selection-end-column="131" />
+        <state relative-caret-position="340">
+          <caret line="202" column="67" lean-forward="true" selection-start-line="202" selection-start-column="67" selection-end-line="202" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1499#4211#0" />
-            <element signature="e#8963#9611#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/util/DisplayBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="85" column="21" lean-forward="true" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
         </state>
       </provider>
     </entry>
